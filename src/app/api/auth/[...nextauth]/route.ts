@@ -1,0 +1,1 @@
+import { authOptions } from "./options";
