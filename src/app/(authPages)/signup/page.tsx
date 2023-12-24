@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import Link from "next/link";
 
 function SignUp() {
   const [authState, setAuthState] = useState<authStateType>({
@@ -74,10 +75,12 @@ function SignUp() {
               <Button>Login</Button>
             </div>
             <div>
-              <p>
-                Don't have an account?
-                <span className="text-yellow-500">Register</span>
-              </p>
+              <span>
+                Already have an account?
+                <Link href="/login" className="text-yellow-500 ml-1">
+                  Login
+                </Link>
+              </span>
             </div>
           </div>
         </div>
