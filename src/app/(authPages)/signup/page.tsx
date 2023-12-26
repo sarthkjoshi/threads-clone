@@ -4,6 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 function SignUp() {
   const [authState, setAuthState] = useState<authStateType>({
@@ -12,9 +14,15 @@ function SignUp() {
     username: "",
     name: "",
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      const res = await axios.post("/api/auth/signup");
+      router.push("/login");
+    } catch (error) {
+      console.log(error);
+    }
     console.log(authState);
   };
   return (
@@ -23,8 +31,8 @@ function SignUp() {
         <div className="flex justify-center items-center h-screen w-screen">
           <div>
             <div>
-              <h1>Login</h1>
-              <h3>Welcome back</h3>
+              <h1 className="text-2xl font-bold">SignUp</h1>
+              <h3>Welcome</h3>
             </div>
             <div>
               <Label htmlFor="name">Name</Label>

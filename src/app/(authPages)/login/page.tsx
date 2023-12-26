@@ -4,15 +4,31 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 function Login() {
   const [authState, setAuthState] = useState<authStateType>({
     email: "",
     password: "",
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(authState);
+    try {
+      const res = await axios.post("/api/auth/login", authState);
+      console.log("yeh hai", res.status);
+      if (res.status == 200)
+        signIn("credentials", {
+          email: authState.email,
+          password: authState.password,
+          callbackUrl: "/",
+          redirect: true,
+        });
+      router.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
