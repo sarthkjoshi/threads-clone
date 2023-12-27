@@ -2,11 +2,11 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 function Login() {
   const [authState, setAuthState] = useState<authStateType>({
     email: "",
@@ -18,18 +18,24 @@ function Login() {
     try {
       const res = await axios.post("/api/auth/login", authState);
       console.log("yeh hai", res.status);
-      if (res.status == 200)
+      if (res.status == 200) {
         signIn("credentials", {
           email: authState.email,
           password: authState.password,
           callbackUrl: "/",
           redirect: true,
         });
-      router.push("/");
+      }
     } catch (error) {
       console.log(error);
     }
   };
+  const { status } = useSession();
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/");
+    }
+  }, [status]);
   return (
     <div>
       <form onSubmit={handleSubmit}>
