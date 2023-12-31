@@ -8,27 +8,7 @@ function Container() {
       <LeftSideBar />
       <div className="w-full bg-slate-300 h-screen overflow-y-auto">
         <PostBox />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+
         <Post />
       </div>
       <RightSideBar />
