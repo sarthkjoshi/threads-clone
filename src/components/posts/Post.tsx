@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 function Post() {
   const { data: session } = useSession();
   const [posts, setPosts] = useState<Post>();
-  console.log("post " + session?.user);
+
   useEffect(() => {
     const getData = async () => {
       try {

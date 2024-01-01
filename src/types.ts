@@ -7,7 +7,7 @@ type authStateType = {
 
 type postStateType = {
   content: string;
-  authorId: string;
+  authorId: number;
 };
 
 type Post = [
