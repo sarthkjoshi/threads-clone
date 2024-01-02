@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SignOut from "../common/SignOut";
 function LeftSideBar() {
   return (
     <div className="h-screen border-r-2 border-sky-300  md:w-1/4 md:block hidden ">
@@ -24,6 +25,7 @@ function LeftSideBar() {
           </li>
         </ul>
       </div>
+      <SignOut />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { CustomSession, authOptions } from "../auth/[...nextauth]/options";
 
 export const GET = async () => {
-  const session: CustomSession = await getServerSession(authOptions);
+  const session: CustomSession | null = await getServerSession(authOptions);
 
   const allData = await prisma.post.findMany({
     where: { authorId: Number(session?.user?.id) },
