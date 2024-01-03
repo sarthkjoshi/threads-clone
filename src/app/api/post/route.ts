@@ -7,19 +7,22 @@ export const GET = async () => {
   const session: CustomSession | null = await getServerSession(authOptions);
 
   const allData = await prisma.post.findMany({
-    where: { authorId: Number(session?.user?.id) },
+    include: {
+      author: true,
+    },
   });
-  // const allData = await prisma.post.findMany();
+
   return NextResponse.json(allData);
 };
 
 export const POST = async (req: NextRequest) => {
-  const { content, authorId } = await req.json();
+  const session: CustomSession | null = await getServerSession(authOptions);
+  const content = await req.json();
 
   await prisma.post.create({
     data: {
       content: content,
-      authorId: authorId,
+      authorId: Number(session?.user?.id),
     },
   });
   return NextResponse.json({ message: "Posted" });

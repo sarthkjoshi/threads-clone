@@ -1,25 +1,20 @@
 "use client";
-import { Input } from "../ui/input";
+
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useRef, useState } from "react";
 import axios from "axios";
-import { useSession } from "next-auth/react";
+
 import { Image } from "lucide-react";
 function AddPost() {
   const imgRef = useRef<HTMLInputElement | null>(null);
   const handleImageClick = () => {
     imgRef.current?.click();
   };
-  const { data: session } = useSession();
-  console.log(session?.user);
-  const [post, setPost] = useState<postStateType>({
-    content: "",
-    authorId: null,
-  });
+
+  const [post, setPost] = useState<string>("");
   const handleClick = async (e: React.MouseEvent) => {
-    setPost({ ...post, authorId: session?.user.id });
-    await axios.post("/api/post", post);
+    await axios.post("/api/post", JSON.stringify(post));
   };
 
   return (
@@ -32,12 +27,7 @@ function AddPost() {
         <textarea
           placeholder="What is happening?!"
           className="w-full h-24 p-2 bg-muted outline-none resize-none rounded-lg placeholder:font-normal ml-2"
-          onChange={(e) => {
-            setPost({
-              ...post,
-              content: e.target.value,
-            });
-          }}
+          onChange={(e) => setPost(e.target.value)}
         />
       </div>
       <div className="mt-3 ml-12 flex justify-between items-center">
