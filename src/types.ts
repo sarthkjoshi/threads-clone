@@ -5,14 +5,18 @@ type authStateType = {
   name?: string;
 };
 
-type postStateType = {
+type PostType = {
+  id: number;
   content: string;
+  createdAt: string;
   authorId: number;
+  author: AuthorType;
 };
 
-type Post = [
-  {
-    id: number;
-    content: string;
-  }
-];
+type AuthorType = {
+  id: number;
+  username: string;
+  email: string;
+  name: string;
+  password: AuthorType;
+};

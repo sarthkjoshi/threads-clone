@@ -1,19 +1,15 @@
 import LeftSideBar from "@/components/base/LeftSideBar";
-import AddPost from "@/components/posts/AddPost";
+import Ha from "../posts/Ha";
 import RightSideBar from "@/components/base/RightSideBAr";
-import Post from "@/components/posts/Post";
-import Haha from "../posts/Haha";
-function Container() {
+
+function Container({ children }: { children: React.ReactNode }) {
   return (
     <div className="container">
       <div className="flex">
         <LeftSideBar />
-        <div className="w-full bg-slate-300 h-screen overflow-y-auto">
-          <AddPost />
-          {/* <Post /> */}
-          <Haha />
-        </div>
+        {children}
         <RightSideBar />
+        <Ha />
       </div>
     </div>
   );

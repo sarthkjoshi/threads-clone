@@ -10,6 +10,9 @@ export const GET = async () => {
     include: {
       author: true,
     },
+    orderBy: {
+      id: "desc",
+    },
   });
 
   return NextResponse.json(allData);
