@@ -1,5 +1,5 @@
 import LeftSideBar from "@/components/base/LeftSideBar";
-import Ha from "../posts/Ha";
+
 import RightSideBar from "@/components/base/RightSideBAr";
 
 function Container({ children }: { children: React.ReactNode }) {
@@ -9,7 +9,6 @@ function Container({ children }: { children: React.ReactNode }) {
         <LeftSideBar />
         {children}
         <RightSideBar />
-        <Ha />
       </div>
     </div>
   );
