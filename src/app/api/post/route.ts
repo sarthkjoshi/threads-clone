@@ -6,6 +6,10 @@ import { CustomSession, authOptions } from "../auth/[...nextauth]/options";
 export const GET = async () => {
   const session: CustomSession | null = await getServerSession(authOptions);
 
+  if (!session) {
+    return NextResponse.json({ message: "No user logged in" });
+  }
+
   const allData = await prisma.post.findMany({
     include: {
       author: true,
@@ -20,6 +24,10 @@ export const GET = async () => {
 
 export const POST = async (req: NextRequest) => {
   const session: CustomSession | null = await getServerSession(authOptions);
+
+  if (!session) {
+    return NextResponse.json({ message: "No user logged in" });
+  }
   const content = await req.json();
 
   await prisma.post.create({

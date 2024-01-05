@@ -7,7 +7,10 @@ function Container({ children }: { children: React.ReactNode }) {
     <div className="container">
       <div className="flex">
         <LeftSideBar />
-        {children}
+        <div className="w-full bg-slate-300 h-screen overflow-y-auto">
+          {children}
+        </div>
+
         <RightSideBar />
       </div>
     </div>

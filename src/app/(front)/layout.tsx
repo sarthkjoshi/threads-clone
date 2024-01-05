@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "../globals.css";
+import Container from "@/components/base/Container";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,5 +13,5 @@ export default function FrontLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return <Container>{children}</Container>;
 }
