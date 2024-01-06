@@ -1,7 +1,6 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Heart, LoaderIcon, MessageCircle } from "lucide-react";
+import UserAvatar from "../common/UserAvatar";
 import { formatDate } from "@/lib/utils";
-
-import { LoaderIcon } from "lucide-react";
 
 function PostCard({ post }: { post: PostType }) {
   if (!post)
@@ -13,20 +12,19 @@ function PostCard({ post }: { post: PostType }) {
   return (
     <div>
       <div className="flex border border-sky-900 gap-2 items-center">
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-
+        <UserAvatar />
         <div>
           <div className="flex">
             <h1 className="font-bold mr-1">{post.author.name}</h1>
             <p>{post.author.username}</p>
             <p className="ml-8 ">{formatDate(post.createdAt)}</p>
           </div>
-
           <div>
             <p>{post.content}</p>
+          </div>
+          <div>
+            <Heart />
+            <MessageCircle />
           </div>
         </div>
       </div>

@@ -1,6 +1,9 @@
+import PostCard from "@/components/posts/PostCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getCurrentUserPost } from "@/lib/getServerData";
 
-function Profile() {
+async function Profile() {
+  const posts: Array<PostType> | [] = await getCurrentUserPost();
   return (
     <div>
       <h2>Profile</h2>
@@ -15,7 +18,9 @@ function Profile() {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="Posts">
-            Make changes to your account here.
+            {posts.map((p) => {
+              return <PostCard post={p} key={p.id} />;
+            })}
           </TabsContent>
           <TabsContent value="Comments">Change your password here.</TabsContent>
         </Tabs>
