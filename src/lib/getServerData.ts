@@ -24,3 +24,12 @@ export const getAllUser = async () => {
   });
   return await response.json();
 };
+
+export const getCommment = async () => {
+  const response = await fetch("http://localhost:3000/api/comment", {
+    method: "GET",
+    cache: "no-store",
+    headers: headers(),
+  });
+  return await response.json();
+};

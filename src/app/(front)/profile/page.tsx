@@ -1,4 +1,4 @@
-import PostCard from "@/components/posts/PostCard";
+import PostCard from "@/components/common/PostCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getCurrentUserPost } from "@/lib/getServerData";
 

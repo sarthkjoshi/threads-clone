@@ -1,5 +1,5 @@
 import AddPost from "@/components/posts/AddPost";
-import PostCard from "@/components/posts/PostCard";
+import PostCard from "@/components/common/PostCard";
 import { getAllPost } from "@/lib/getServerData";
 
 export default async function Home() {

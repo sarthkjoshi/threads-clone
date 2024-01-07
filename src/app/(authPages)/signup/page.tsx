@@ -18,13 +18,12 @@ function SignUp() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/signup");
+      const res = await axios.post("/api/auth/signup", authState);
       router.push("/login");
       console.log(res);
     } catch (error) {
       console.log(error);
     }
-    console.log(authState);
   };
   return (
     <div>
