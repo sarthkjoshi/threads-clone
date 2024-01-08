@@ -6,9 +6,10 @@ import { getServerSession } from "next-auth";
 export const POST = async (req: NextRequest) => {
   const session: CustomSession | null = await getServerSession(authOptions);
   const data = await req.json();
+
   await prisma.post.update({
     where: {
-      id: Number(session?.user?.id),
+      id: Number(data.postId),
     },
     data: {
       comment_count: {
@@ -19,7 +20,7 @@ export const POST = async (req: NextRequest) => {
   await prisma.comment.create({
     data: {
       content: data.content,
-      postId: Number(data.postid),
+      postId: Number(data.postId),
       authorId: Number(session?.user?.id),
     },
   });
