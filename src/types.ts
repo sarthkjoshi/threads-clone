@@ -11,6 +11,8 @@ type PostType = {
   createdAt: string;
   authorId: number;
   author: AuthorType;
+  comment_count: number;
+  comment: CommentType;
 };
 
 type AuthorType = {
@@ -19,4 +21,11 @@ type AuthorType = {
   email: string;
   name: string;
   password: AuthorType;
+};
+type CommentType = {
+  id: 4;
+  content: string;
+  createdAt: string;
+  authorId: number;
+  postId: number;
 };

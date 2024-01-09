@@ -33,3 +33,12 @@ export const getCommment = async () => {
   });
   return await response.json();
 };
+
+export const getCurrentClikedPost = async (id: string) => {
+  const response = await fetch(`http://localhost:3000/api/post/${id}`, {
+    method: "GET",
+    cache: "no-store",
+    headers: headers(),
+  });
+  return await response.json();
+};

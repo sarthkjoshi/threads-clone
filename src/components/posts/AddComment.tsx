@@ -14,10 +14,8 @@ import { MessageCircle } from "lucide-react";
 import UserAvatar from "../common/UserAvatar";
 import { useState } from "react";
 import axios from "axios";
-import { useSession } from "next-auth/react";
 
 function AddComment({ post }: { post: PostType }) {
-  const { data } = useSession();
   const [content, setContent] = useState<string>("");
   const submitComment = () => {
     axios.post("api/comment", {

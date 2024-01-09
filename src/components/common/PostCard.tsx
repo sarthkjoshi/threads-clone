@@ -2,7 +2,7 @@ import { Heart, LoaderIcon, MessageCircle, Send } from "lucide-react";
 import UserAvatar from "./UserAvatar";
 import { formatDate } from "@/lib/utils";
 import AddComment from "../posts/AddComment";
-
+import Link from "next/link";
 function PostCard({ post }: { post: PostType }) {
   if (!post)
     return (
@@ -20,7 +20,9 @@ function PostCard({ post }: { post: PostType }) {
           <p className="ml-8 ">{formatDate(post.createdAt)}</p>
         </div>
         <div>
-          <p>{post.content}</p>
+          <Link href={`/post/${post.id}`}>
+            <p>{post.content}</p>
+          </Link>
         </div>
         <div className="flex items-center space-x-4">
           <Heart />
