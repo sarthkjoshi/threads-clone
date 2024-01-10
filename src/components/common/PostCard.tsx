@@ -20,7 +20,7 @@ function PostCard({ post }: { post: PostType }) {
           <p className="ml-8 ">{formatDate(post.createdAt)}</p>
         </div>
         <div>
-          <Link href={`/post/${post.id}`}>
+          <Link href={`/post/${post.id}`} className="cursor-pointer">
             <p>{post.content}</p>
           </Link>
         </div>

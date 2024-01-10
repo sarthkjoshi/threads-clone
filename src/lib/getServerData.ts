@@ -5,6 +5,7 @@ export const getAllPost = async () => {
     cache: "no-store",
     headers: headers(),
   });
+
   return await response.json();
 };
 export const getCurrentUserPost = async () => {
@@ -34,11 +35,12 @@ export const getCommment = async () => {
   return await response.json();
 };
 
-export const getCurrentClikedPost = async (id: string) => {
+export const getCurrentClikedPost = async (id: number) => {
   const response = await fetch(`http://localhost:3000/api/post/${id}`, {
     method: "GET",
     cache: "no-store",
     headers: headers(),
   });
+
   return await response.json();
 };

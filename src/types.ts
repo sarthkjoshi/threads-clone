@@ -28,4 +28,5 @@ type CommentType = {
   createdAt: string;
   authorId: number;
   postId: number;
+  author: AuthorType;
 };

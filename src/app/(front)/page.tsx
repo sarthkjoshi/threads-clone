@@ -4,6 +4,7 @@ import { getAllPost } from "@/lib/getServerData";
 
 export default async function Home() {
   const posts: Array<PostType> | [] = await getAllPost();
+
   return (
     <div>
       <AddPost />
