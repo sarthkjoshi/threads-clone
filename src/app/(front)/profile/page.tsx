@@ -1,9 +1,14 @@
+import CommentCard from "@/components/common/CommentCard";
 import PostCard from "@/components/common/PostCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getCurrentUserPost } from "@/lib/getServerData";
+import {
+  getCurrentUserComments,
+  getCurrentUserPost,
+} from "@/lib/getServerData";
 
 async function Profile() {
   const posts: Array<PostType> | [] = await getCurrentUserPost();
+  const comments: Array<CommentType> | [] = await getCurrentUserComments();
   return (
     <div>
       <h2>Profile</h2>
@@ -22,7 +27,11 @@ async function Profile() {
               return <PostCard post={p} key={p.id} />;
             })}
           </TabsContent>
-          <TabsContent value="Comments">Change your password here.</TabsContent>
+          <TabsContent value="Comments">
+            {comments.map((p) => {
+              return <CommentCard comment={p} key={p.id} />;
+            })}
+          </TabsContent>
         </Tabs>
       </div>
     </div>

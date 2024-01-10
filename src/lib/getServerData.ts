@@ -44,3 +44,11 @@ export const getCurrentClikedPost = async (id: number) => {
 
   return await response.json();
 };
+export const getCurrentUserComments = async () => {
+  const response = await fetch("http://localhost:3000/api/user/comment", {
+    method: "GET",
+    cache: "no-store",
+    headers: headers(),
+  });
+  return await response.json();
+};
