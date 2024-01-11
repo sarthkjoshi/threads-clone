@@ -18,7 +18,7 @@ import axios from "axios";
 function AddComment({ post }: { post: PostType }) {
   const [content, setContent] = useState<string>("");
   const submitComment = () => {
-    axios.post("api/comment", {
+    axios.post("/api/comment", {
       content: content,
       postId: post.id.toString(),
     });

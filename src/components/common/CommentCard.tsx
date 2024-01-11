@@ -1,8 +1,15 @@
 import { formatDate } from "@/lib/utils";
 import UserAvatar from "./UserAvatar";
 import { Heart } from "lucide-react";
+import DeleteComment from "../posts/DeleteComment";
 
-function CommentCard({ comment }: { comment: CommentType }) {
+function CommentCard({
+  comment,
+  isDelete,
+}: {
+  comment: CommentType;
+  isDelete: boolean;
+}) {
   return (
     <div className="flex gap-2 items-center m-2">
       <UserAvatar />
@@ -16,6 +23,11 @@ function CommentCard({ comment }: { comment: CommentType }) {
           <p>{comment.content}</p>
         </div>
       </div>
+      {isDelete && (
+        <div>
+          <DeleteComment id={comment.id} />
+        </div>
+      )}
     </div>
   );
 }

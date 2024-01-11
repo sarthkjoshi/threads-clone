@@ -24,12 +24,12 @@ async function Profile() {
           </TabsList>
           <TabsContent value="Posts">
             {posts.map((p) => {
-              return <PostCard post={p} key={p.id} />;
+              return <PostCard post={p} key={p.id} isDelete={true} />;
             })}
           </TabsContent>
           <TabsContent value="Comments">
             {comments.map((p) => {
-              return <CommentCard comment={p} key={p.id} />;
+              return <CommentCard comment={p} key={p.id} isDelete={true} />;
             })}
           </TabsContent>
         </Tabs>

@@ -1,9 +1,10 @@
-import { Heart, LoaderIcon, MessageCircle, Send } from "lucide-react";
+import { Heart, LoaderIcon, MessageCircle, Send, Trash2 } from "lucide-react";
 import UserAvatar from "./UserAvatar";
 import { formatDate } from "@/lib/utils";
 import AddComment from "../posts/AddComment";
 import Link from "next/link";
-function PostCard({ post }: { post: PostType }) {
+import DeletePost from "../posts/DeletePost";
+function PostCard({ post, isDelete }: { post: PostType; isDelete: boolean }) {
   if (!post)
     return (
       <div className="flex justify-center items-center">
@@ -31,6 +32,11 @@ function PostCard({ post }: { post: PostType }) {
           <Send />
         </div>
       </div>
+      {isDelete && (
+        <div className="ml-auto">
+          <DeletePost id={post.id} />
+        </div>
+      )}
     </div>
   );
 }
