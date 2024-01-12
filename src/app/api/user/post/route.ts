@@ -18,6 +18,6 @@ export const GET = async () => {
       author: true,
     },
   });
-  console.log(allData);
+
   return NextResponse.json(allData);
 };

@@ -52,3 +52,12 @@ export const getCurrentUserComments = async () => {
   });
   return await response.json();
 };
+
+export const getClickedUserDetails = async (id: number) => {
+  const response = await fetch(`http://localhost:3000/api/user/${id}`, {
+    method: "GET",
+    cache: "no-store",
+    headers: headers(),
+  });
+  return await response.json();
+};

@@ -7,11 +7,11 @@ async function Post({ params }: { params: { id: number } }) {
 
   return (
     <div>
-      <PostCard post={post} />
+      <PostCard post={post} isDelete={false} />
       <div className="mt-5">
         <h1 className="font-bold">Comments</h1>
         {post.comment.map((i: CommentType) => (
-          <CommentCard comment={i} key={i.id} />
+          <CommentCard comment={i} key={i.id} isDelete={false} />
         ))}
       </div>
     </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../ui/button";
 import UserAvatar from "./UserAvatar";
 function AuthorList({ author }: { author: AuthorType }) {
@@ -9,7 +10,9 @@ function AuthorList({ author }: { author: AuthorType }) {
           <h1 className="font-bold mr-1">{author.name}</h1>
           <p>{author.username}</p>
         </div>
-        <Button>View</Button>
+        <Link href={`/user/${author.id}`}>
+          <Button>View</Button>
+        </Link>
       </div>
     </div>
   );

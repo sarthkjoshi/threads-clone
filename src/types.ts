@@ -20,13 +20,22 @@ type AuthorType = {
   username: string;
   email: string;
   name: string;
-  password: AuthorType;
+  password: string;
 };
 type CommentType = {
-  id: 4;
+  id: number;
   content: string;
   createdAt: string;
   authorId: number;
   postId: number;
   author: AuthorType;
+};
+
+type UserDeatailsType = {
+  id: number;
+  username: string;
+  email: string;
+  name: string;
+  password: string;
+  posts: [PostType];
 };
