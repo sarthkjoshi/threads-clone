@@ -61,3 +61,12 @@ export const getClickedUserDetails = async (id: number) => {
   });
   return await response.json();
 };
+
+export const getCurrentUserNotifications = async () => {
+  const response = await fetch("http://localhost:3000/api/user/notification", {
+    method: "GET",
+    cache: "no-store",
+    headers: headers(),
+  });
+  return await response.json();
+};

@@ -39,3 +39,11 @@ type UserDeatailsType = {
   password: string;
   posts: [PostType];
 };
+
+type NotificationType = {
+  id: number;
+  content: string;
+  userId: number;
+  createdAt: string;
+  user: AuthorType;
+};

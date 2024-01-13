@@ -17,6 +17,12 @@ export const POST = async (req: NextRequest) => {
       },
     },
   });
+  await prisma.notification.create({
+    data: {
+      userId: Number(session?.user.id),
+    },
+  });
+
   await prisma.comment.create({
     data: {
       content: data.content,
