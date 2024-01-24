@@ -12,6 +12,9 @@ function LeftSideBar() {
             <Link href="/search">Search </Link>
           </li>
           <li className="m-9">
+            <Link href="/notification">Notification</Link>
+          </li>
+          <li className="m-9">
             <Link href="/activity">Activity</Link>
           </li>
           <li className="m-9">

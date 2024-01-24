@@ -45,5 +45,5 @@ type NotificationType = {
   content: string;
   userId: number;
   createdAt: string;
-  user: AuthorType;
+  User: AuthorType;
 };

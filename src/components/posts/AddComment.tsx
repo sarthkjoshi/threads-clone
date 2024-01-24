@@ -21,6 +21,7 @@ function AddComment({ post }: { post: PostType }) {
     axios.post("/api/comment", {
       content: content,
       postId: post.id.toString(),
+      userId: post.authorId,
     });
   };
   return (

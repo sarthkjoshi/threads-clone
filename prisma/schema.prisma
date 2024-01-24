@@ -46,5 +46,6 @@ model Notification {
   content   String
   User      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    Int?
+  forUser   Int
   createdAt DateTime @default(now())
 }

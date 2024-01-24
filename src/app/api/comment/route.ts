@@ -19,7 +19,9 @@ export const POST = async (req: NextRequest) => {
   });
   await prisma.notification.create({
     data: {
-      userId: Number(session?.user.id),
+      userId: Number(session?.user?.id),
+      forUser: Number(data.userId),
+      content: "Commented on your post",
     },
   });
 

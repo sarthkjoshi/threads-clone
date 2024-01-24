@@ -7,7 +7,10 @@ export const GET = async () => {
   const session: CustomSession | null = await getServerSession(authOptions);
   const allData = await prisma.notification.findMany({
     where: {
-      userId: Number(session?.user?.id),
+      forUser: Number(session?.user?.id),
+    },
+    include: {
+      User: true,
     },
   });
   return NextResponse.json(allData);
